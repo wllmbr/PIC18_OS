@@ -1,0 +1,183 @@
+Version 3.2 HI-TECH Software Intermediate Code
+"16 SN74HC164.h
+[s S1 `*uc 1 `uc 1 `*uc 1 `uc 1 `uc 1 ]
+[n S1 SN74HC164 clkPort clkMask dPort dMask data ]
+"31
+[v _clear `(v ~T0 @X0 0 ef1`*S1 ]
+"30
+[v _resend `(v ~T0 @X0 0 ef1`*S1 ]
+[; ;SN74HC164.h: 16: typedef struct SN74HC164{
+[; ;SN74HC164.h: 17: unsigned char *clkPort;
+[; ;SN74HC164.h: 18: unsigned char clkMask;
+[; ;SN74HC164.h: 19: unsigned char *dPort;
+[; ;SN74HC164.h: 20: unsigned char dMask;
+[; ;SN74HC164.h: 21: unsigned char data;
+[; ;SN74HC164.h: 22: } SN74HC164;
+[; ;SN74HC164.h: 24: void init(SN74HC164 *object,
+[; ;SN74HC164.h: 25: unsigned char *clockPort,
+[; ;SN74HC164.h: 26: unsigned char clockMask,
+[; ;SN74HC164.h: 27: unsigned char *dataPort,
+[; ;SN74HC164.h: 28: unsigned char dataMask);
+[; ;SN74HC164.h: 29: void loadNew(SN74HC164 *object, unsigned char newData);
+[; ;SN74HC164.h: 30: void resend(SN74HC164 *object);
+[; ;SN74HC164.h: 31: void clear(SN74HC164 *object);
+"4 SN74HC164.c
+[v _init `(v ~T0 @X0 1 ef5`*S1`*uc`uc`*uc`uc ]
+"9
+{
+[; ;SN74HC164.c: 4: void init(SN74HC164 *object,
+[; ;SN74HC164.c: 5: unsigned char *clockPort,
+[; ;SN74HC164.c: 6: unsigned char clockMask,
+[; ;SN74HC164.c: 7: unsigned char *dataPort,
+[; ;SN74HC164.c: 8: unsigned char dataMask)
+[; ;SN74HC164.c: 9: {
+[e :U _init ]
+"4
+[v _object `*S1 ~T0 @X0 1 r1 ]
+"5
+[v _clockPort `*uc ~T0 @X0 1 r2 ]
+"6
+[v _clockMask `uc ~T0 @X0 1 r3 ]
+"7
+[v _dataPort `*uc ~T0 @X0 1 r4 ]
+"8
+[v _dataMask `uc ~T0 @X0 1 r5 ]
+"9
+[f ]
+[; ;SN74HC164.c: 10: object->clkPort = clockPort;
+"10
+[e = . *U _object 0 _clockPort ]
+[; ;SN74HC164.c: 11: object->clkMask = clockMask;
+"11
+[e = . *U _object 1 _clockMask ]
+[; ;SN74HC164.c: 12: object->dPort = dataPort;
+"12
+[e = . *U _object 2 _dataPort ]
+[; ;SN74HC164.c: 13: object->dMask = dataMask;
+"13
+[e = . *U _object 3 _dataMask ]
+[; ;SN74HC164.c: 16: object->data = 0xaa;
+"16
+[e = . *U _object 4 -> -> 170 `i `uc ]
+[; ;SN74HC164.c: 19: object->clkPort[0] |= object->clkMask;
+"19
+[e =| *U + . *U _object 0 * -> -> 0 `i `x -> -> # *U . *U _object 0 `i `x . *U _object 1 ]
+[; ;SN74HC164.c: 21: clear(object);
+"21
+[e ( _clear (1 _object ]
+[; ;SN74HC164.c: 23: }
+"23
+[e :UE 2 ]
+}
+"25
+[v _loadNew `(v ~T0 @X0 1 ef2`*S1`uc ]
+"26
+{
+[; ;SN74HC164.c: 25: void loadNew(SN74HC164 * object, unsigned char newData)
+[; ;SN74HC164.c: 26: {
+[e :U _loadNew ]
+"25
+[v _object `*S1 ~T0 @X0 1 r1 ]
+[v _newData `uc ~T0 @X0 1 r2 ]
+"26
+[f ]
+[; ;SN74HC164.c: 27: object->data = newData;
+"27
+[e = . *U _object 4 _newData ]
+[; ;SN74HC164.c: 28: resend(object);
+"28
+[e ( _resend (1 _object ]
+[; ;SN74HC164.c: 29: }
+"29
+[e :UE 3 ]
+}
+"30
+[v _resend `(v ~T0 @X0 1 ef1`*S1 ]
+"31
+{
+[; ;SN74HC164.c: 30: void resend(SN74HC164 *object)
+[; ;SN74HC164.c: 31: {
+[e :U _resend ]
+"30
+[v _object `*S1 ~T0 @X0 1 r1 ]
+"31
+[f ]
+"32
+[v _cycle `i ~T0 @X0 1 a ]
+[; ;SN74HC164.c: 32: int cycle;
+[; ;SN74HC164.c: 33: for(cycle=0; cycle < 8; cycle++){
+"33
+{
+[e = _cycle -> 0 `i ]
+[e $ < _cycle -> 8 `i 5  ]
+[e $U 6  ]
+[e :U 5 ]
+{
+"35
+[v _toSend `uc ~T0 @X0 1 a ]
+[; ;SN74HC164.c: 35: unsigned char toSend;
+[; ;SN74HC164.c: 36: toSend= 0x00;
+"36
+[e = _toSend -> -> 0 `i `uc ]
+[; ;SN74HC164.c: 37: if((0x80 >> cycle) & object->data){
+"37
+[e $ ! != & >> -> 128 `i _cycle -> . *U _object 4 `i -> 0 `i 8  ]
+{
+[; ;SN74HC164.c: 38: toSend = 0xff;
+"38
+[e = _toSend -> -> 255 `i `uc ]
+"39
+}
+[; ;SN74HC164.c: 39: }else{
+[e $U 9  ]
+[e :U 8 ]
+{
+[; ;SN74HC164.c: 40: toSend = 0x00;
+"40
+[e = _toSend -> -> 0 `i `uc ]
+"41
+}
+[e :U 9 ]
+[; ;SN74HC164.c: 41: }
+[; ;SN74HC164.c: 42: object->dPort[0] |= (object->dMask & toSend);
+"42
+[e =| *U + . *U _object 2 * -> -> 0 `i `x -> -> # *U . *U _object 2 `i `x -> & -> . *U _object 3 `i -> _toSend `i `uc ]
+[; ;SN74HC164.c: 43: asm("nop");
+"43
+[; <" nop ;# ">
+[; ;SN74HC164.c: 45: object->clkPort[0] |= (object->clkMask & 0xff);
+"45
+[e =| *U + . *U _object 0 * -> -> 0 `i `x -> -> # *U . *U _object 0 `i `x -> & -> . *U _object 1 `i -> 255 `i `uc ]
+[; ;SN74HC164.c: 46: asm("nop");
+"46
+[; <" nop ;# ">
+[; ;SN74HC164.c: 48: object->clkPort[0] &= ~(object->clkMask & 0xff);
+"48
+[e =& *U + . *U _object 0 * -> -> 0 `i `x -> -> # *U . *U _object 0 `i `x -> ~ & -> . *U _object 1 `i -> 255 `i `uc ]
+"49
+}
+"33
+[e ++ _cycle -> 1 `i ]
+[e $ < _cycle -> 8 `i 5  ]
+[e :U 6 ]
+"49
+}
+[; ;SN74HC164.c: 49: }
+[; ;SN74HC164.c: 50: }
+"50
+[e :UE 4 ]
+}
+"52
+[v _clear `(v ~T0 @X0 1 ef1`*S1 ]
+{
+[; ;SN74HC164.c: 52: void clear(SN74HC164 *object){
+[e :U _clear ]
+[v _object `*S1 ~T0 @X0 1 r1 ]
+[f ]
+[; ;SN74HC164.c: 53: object->data = 0x00;
+"53
+[e = . *U _object 4 -> -> 0 `i `uc ]
+[; ;SN74HC164.c: 56: }
+"56
+[e :UE 10 ]
+}

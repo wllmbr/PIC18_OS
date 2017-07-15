@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+  <executable name="dist/Pickit/production\LED.X.production.hex">
+    <memory name="program">
+      <units>bytes</units>
+      <length>131072</length>
+      <used>873</used>
+      <free>130199</free>
+    </memory>
+    <memory name="data">
+      <units>bytes</units>
+      <length>3710</length>
+      <used>314</used>
+      <free>3396</free>
+    </memory>
+  </executable>
+</project>

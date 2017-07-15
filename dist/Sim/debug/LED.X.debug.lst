@@ -1,0 +1,1415 @@
+
+
+Microchip Technology PIC18 LITE Macro Assembler V1.42 build -159332390 
+                                                                                               Sat Jul 15 13:53:43 2017
+
+Microchip Technology Omniscient Code Generator v1.42 (Free mode) build 201704130522
+     1                           	processor	18F47K40
+     2                           	fnconf	rparam,??,?,0
+     3                           	opt	pw 120
+     4                           	opt	lm
+     5                           	psect	idataCOMRAM,global,class=CODE,delta=1,noexec
+     6                           	psect	idataBANK0,global,class=CODE,delta=1,noexec
+     7                           	psect	idataBANK1,global,class=CODE,delta=1,noexec
+     8                           	psect	cinit,global,reloc=2,class=CODE,delta=1
+     9                           	psect	dataCOMRAM,global,class=COMRAM,space=1,delta=1,noexec
+    10                           	psect	dataBANK0,global,class=BANK0,space=1,delta=1,lowdata,noexec
+    11                           	psect	dataBANK1,global,class=BANK1,space=1,delta=1,lowdata,noexec
+    12                           	psect	cstackCOMRAM,global,class=COMRAM,space=1,delta=1,noexec
+    13                           	psect	text0,global,reloc=2,class=CODE,delta=1
+    14                           	psect	text1,global,reloc=2,class=CODE,delta=1
+    15                           	psect	text2,global,reloc=2,class=CODE,delta=1
+    16                           	psect	text3,global,reloc=2,class=CODE,delta=1
+    17                           	psect	intsave_regs,global,class=BIGRAM,space=1,delta=1,noexec
+    18                           	psect	rparam,global,class=COMRAM,space=1,delta=1,noexec
+    19  0000                     
+    20                           ; Version 1.42
+    21                           ; Generated 13/04/2017 GMT
+    22                           ; 
+    23                           ; Copyright © 2017, Microchip Technology Inc. and its subsidiaries ("Microchip")
+    24                           ; All rights reserved.
+    25                           ; 
+    26                           ; This software is developed by Microchip Technology Inc. and its subsidiaries ("Microch
+      +                          ip").
+    27                           ; 
+    28                           ; Redistribution and use in source and binary forms, with or without modification, are
+    29                           ; permitted provided that the following conditions are met:
+    30                           ; 
+    31                           ;     1. Redistributions of source code must retain the above copyright notice, this lis
+      +                          t of
+    32                           ;        conditions and the following disclaimer.
+    33                           ; 
+    34                           ;     2. Redistributions in binary form must reproduce the above copyright notice, this 
+      +                          list
+    35                           ;        of conditions and the following disclaimer in the documentation and/or other
+    36                           ;        materials provided with the distribution.
+    37                           ; 
+    38                           ;     3. Microchip's name may not be used to endorse or promote products derived from th
+      +                          is
+    39                           ;        software without specific prior written permission.
+    40                           ; 
+    41                           ; THIS SOFTWARE IS PROVIDED BY MICROCHIP "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
+    42                           ; INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS F
+      +                          OR
+    43                           ; PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL MICROCHIP BE LIABLE FOR ANY DIRECT, INDIREC
+      +                          T,
+    44                           ; INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING BUT NOT LIMITED TO
+    45                           ; PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA OR PROFITS; OR BUSINESS
+    46                           ; INTERRUPTION) HOWSOEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, ST
+      +                          RICT
+    47                           ; LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE U
+      +                          SE OF
+    48                           ; THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+    49                           ; 
+    50                           ; 
+    51                           ; Code-generator required, PIC18F47K40 Definitions
+    52                           ; 
+    53                           ; SFR Addresses
+    54  0000                     
+    55                           	psect	idataCOMRAM
+    56  01FC83                     __pidataCOMRAM:
+    57                           	opt stack 0
+    58                           
+    59                           ;initializer for _regNumber
+    60  01FC83  00                 	db	0
+    61  01FC84  03                 	db	3
+    62  01FC85  00                 	db	0
+    63  01FC86  01                 	db	1
+    64  01FC87  02                 	db	2
+    65  01FC88  03                 	db	3
+    66  01FC89  04                 	db	4
+    67  01FC8A  05                 	db	5
+    68  01FC8B  00                 	db	0
+    69  01FC8C  01                 	db	1
+    70  01FC8D  02                 	db	2
+    71  01FC8E  00                 	db	0
+    72  01FC8F  00                 	db	0
+    73  01FC90  07                 	db	7
+    74  01FC91  06                 	db	6
+    75  01FC92  00                 	db	0
+    76  01FC93  01                 	db	1
+    77  01FC94  02                 	db	2
+    78  01FC95  03                 	db	3
+    79  01FC96  00                 	db	0
+    80  01FC97  01                 	db	1
+    81  01FC98  02                 	db	2
+    82  01FC99  03                 	db	3
+    83  01FC9A  04                 	db	4
+    84  01FC9B  05                 	db	5
+    85  01FC9C  06                 	db	6
+    86  01FC9D  07                 	db	7
+    87  01FC9E  04                 	db	4
+    88  01FC9F  05                 	db	5
+    89  01FCA0  06                 	db	6
+    90  01FCA1  07                 	db	7
+    91  01FCA2  00                 	db	0
+    92  01FCA3  00                 	db	0
+    93  01FCA4  00                 	db	0
+    94  01FCA5  01                 	db	1
+    95  01FCA6  02                 	db	2
+    96  01FCA7  03                 	db	3
+    97  01FCA8  04                 	db	4
+    98  01FCA9  05                 	db	5
+    99  01FCAA  06                 	db	6
+   100  01FCAB  07                 	db	7
+   101                           
+   102                           	psect	idataBANK0
+   103  01FD72                     __pidataBANK0:
+   104                           	opt stack 0
+   105                           
+   106                           ;initializer for _trisID
+   107  01FD72  00                 	db	0
+   108  01FD73  00                 	db	0
+   109  01FD74  8C                 	db	140
+   110  01FD75  0F                 	db	15
+   111  01FD76  88                 	db	136
+   112  01FD77  0F                 	db	15
+   113  01FD78  88                 	db	136
+   114  01FD79  0F                 	db	15
+   115  01FD7A  88                 	db	136
+   116  01FD7B  0F                 	db	15
+   117  01FD7C  88                 	db	136
+   118  01FD7D  0F                 	db	15
+   119  01FD7E  88                 	db	136
+   120  01FD7F  0F                 	db	15
+   121  01FD80  88                 	db	136
+   122  01FD81  0F                 	db	15
+   123  01FD82  8C                 	db	140
+   124  01FD83  0F                 	db	15
+   125  01FD84  8C                 	db	140
+   126  01FD85  0F                 	db	15
+   127  01FD86  8C                 	db	140
+   128  01FD87  0F                 	db	15
+   129  01FD88  00                 	db	0
+   130  01FD89  00                 	db	0
+   131  01FD8A  00                 	db	0
+   132  01FD8B  00                 	db	0
+   133  01FD8C  88                 	db	136
+   134  01FD8D  0F                 	db	15
+   135  01FD8E  88                 	db	136
+   136  01FD8F  0F                 	db	15
+   137  01FD90  8A                 	db	138
+   138  01FD91  0F                 	db	15
+   139  01FD92  8A                 	db	138
+   140  01FD93  0F                 	db	15
+   141  01FD94  8A                 	db	138
+   142  01FD95  0F                 	db	15
+   143  01FD96  8A                 	db	138
+   144  01FD97  0F                 	db	15
+   145  01FD98  8B                 	db	139
+   146  01FD99  0F                 	db	15
+   147  01FD9A  8B                 	db	139
+   148  01FD9B  0F                 	db	15
+   149  01FD9C  8B                 	db	139
+   150  01FD9D  0F                 	db	15
+   151  01FD9E  8B                 	db	139
+   152  01FD9F  0F                 	db	15
+   153  01FDA0  8A                 	db	138
+   154  01FDA1  0F                 	db	15
+   155  01FDA2  8A                 	db	138
+   156  01FDA3  0F                 	db	15
+   157  01FDA4  8A                 	db	138
+   158  01FDA5  0F                 	db	15
+   159  01FDA6  8A                 	db	138
+   160  01FDA7  0F                 	db	15
+   161  01FDA8  8B                 	db	139
+   162  01FDA9  0F                 	db	15
+   163  01FDAA  8B                 	db	139
+   164  01FDAB  0F                 	db	15
+   165  01FDAC  8B                 	db	139
+   166  01FDAD  0F                 	db	15
+   167  01FDAE  8B                 	db	139
+   168  01FDAF  0F                 	db	15
+   169  01FDB0  00                 	db	0
+   170  01FDB1  00                 	db	0
+   171  01FDB2  00                 	db	0
+   172  01FDB3  00                 	db	0
+   173  01FDB4  89                 	db	137
+   174  01FDB5  0F                 	db	15
+   175  01FDB6  89                 	db	137
+   176  01FDB7  0F                 	db	15
+   177  01FDB8  89                 	db	137
+   178  01FDB9  0F                 	db	15
+   179  01FDBA  89                 	db	137
+   180  01FDBB  0F                 	db	15
+   181  01FDBC  89                 	db	137
+   182  01FDBD  0F                 	db	15
+   183  01FDBE  89                 	db	137
+   184  01FDBF  0F                 	db	15
+   185  01FDC0  89                 	db	137
+   186  01FDC1  0F                 	db	15
+   187  01FDC2  89                 	db	137
+   188  01FDC3  0F                 	db	15
+   189                           
+   190                           	psect	idataBANK1
+   191  01FE2A                     __pidataBANK1:
+   192                           	opt stack 0
+   193                           
+   194                           ;initializer for _latID
+   195  01FE2A  00                 	db	0
+   196  01FE2B  00                 	db	0
+   197  01FE2C  87                 	db	135
+   198  01FE2D  0F                 	db	15
+   199  01FE2E  83                 	db	131
+   200  01FE2F  0F                 	db	15
+   201  01FE30  83                 	db	131
+   202  01FE31  0F                 	db	15
+   203  01FE32  83                 	db	131
+   204  01FE33  0F                 	db	15
+   205  01FE34  83                 	db	131
+   206  01FE35  0F                 	db	15
+   207  01FE36  83                 	db	131
+   208  01FE37  0F                 	db	15
+   209  01FE38  83                 	db	131
+   210  01FE39  0F                 	db	15
+   211  01FE3A  87                 	db	135
+   212  01FE3B  0F                 	db	15
+   213  01FE3C  87                 	db	135
+   214  01FE3D  0F                 	db	15
+   215  01FE3E  87                 	db	135
+   216  01FE3F  0F                 	db	15
+   217  01FE40  00                 	db	0
+   218  01FE41  00                 	db	0
+   219  01FE42  00                 	db	0
+   220  01FE43  00                 	db	0
+   221  01FE44  83                 	db	131
+   222  01FE45  0F                 	db	15
+   223  01FE46  83                 	db	131
+   224  01FE47  0F                 	db	15
+   225  01FE48  85                 	db	133
+   226  01FE49  0F                 	db	15
+   227  01FE4A  85                 	db	133
+   228  01FE4B  0F                 	db	15
+   229  01FE4C  85                 	db	133
+   230  01FE4D  0F                 	db	15
+   231  01FE4E  85                 	db	133
+   232  01FE4F  0F                 	db	15
+   233  01FE50  86                 	db	134
+   234  01FE51  0F                 	db	15
+   235  01FE52  86                 	db	134
+   236  01FE53  0F                 	db	15
+   237  01FE54  86                 	db	134
+   238  01FE55  0F                 	db	15
+   239  01FE56  86                 	db	134
+   240  01FE57  0F                 	db	15
+   241  01FE58  85                 	db	133
+   242  01FE59  0F                 	db	15
+   243  01FE5A  85                 	db	133
+   244  01FE5B  0F                 	db	15
+   245  01FE5C  85                 	db	133
+   246  01FE5D  0F                 	db	15
+   247  01FE5E  85                 	db	133
+   248  01FE5F  0F                 	db	15
+   249  01FE60  86                 	db	134
+   250  01FE61  0F                 	db	15
+   251  01FE62  86                 	db	134
+   252  01FE63  0F                 	db	15
+   253  01FE64  86                 	db	134
+   254  01FE65  0F                 	db	15
+   255  01FE66  86                 	db	134
+   256  01FE67  0F                 	db	15
+   257  01FE68  00                 	db	0
+   258  01FE69  00                 	db	0
+   259  01FE6A  00                 	db	0
+   260  01FE6B  00                 	db	0
+   261  01FE6C  84                 	db	132
+   262  01FE6D  0F                 	db	15
+   263  01FE6E  84                 	db	132
+   264  01FE6F  0F                 	db	15
+   265  01FE70  84                 	db	132
+   266  01FE71  0F                 	db	15
+   267  01FE72  84                 	db	132
+   268  01FE73  0F                 	db	15
+   269  01FE74  84                 	db	132
+   270  01FE75  0F                 	db	15
+   271  01FE76  84                 	db	132
+   272  01FE77  0F                 	db	15
+   273  01FE78  84                 	db	132
+   274  01FE79  0F                 	db	15
+   275  01FE7A  84                 	db	132
+   276  01FE7B  0F                 	db	15
+   277                           
+   278                           ;initializer for _portID
+   279  01FE7C  00                 	db	0
+   280  01FE7D  00                 	db	0
+   281  01FE7E  91                 	db	145
+   282  01FE7F  0F                 	db	15
+   283  01FE80  8D                 	db	141
+   284  01FE81  0F                 	db	15
+   285  01FE82  8D                 	db	141
+   286  01FE83  0F                 	db	15
+   287  01FE84  8D                 	db	141
+   288  01FE85  0F                 	db	15
+   289  01FE86  8D                 	db	141
+   290  01FE87  0F                 	db	15
+   291  01FE88  8D                 	db	141
+   292  01FE89  0F                 	db	15
+   293  01FE8A  8D                 	db	141
+   294  01FE8B  0F                 	db	15
+   295  01FE8C  91                 	db	145
+   296  01FE8D  0F                 	db	15
+   297  01FE8E  91                 	db	145
+   298  01FE8F  0F                 	db	15
+   299  01FE90  91                 	db	145
+   300  01FE91  0F                 	db	15
+   301  01FE92  00                 	db	0
+   302  01FE93  00                 	db	0
+   303  01FE94  00                 	db	0
+   304  01FE95  00                 	db	0
+   305  01FE96  8D                 	db	141
+   306  01FE97  0F                 	db	15
+   307  01FE98  8D                 	db	141
+   308  01FE99  0F                 	db	15
+   309  01FE9A  8F                 	db	143
+   310  01FE9B  0F                 	db	15
+   311  01FE9C  8F                 	db	143
+   312  01FE9D  0F                 	db	15
+   313  01FE9E  8F                 	db	143
+   314  01FE9F  0F                 	db	15
+   315  01FEA0  8F                 	db	143
+   316  01FEA1  0F                 	db	15
+   317  01FEA2  90                 	db	144
+   318  01FEA3  0F                 	db	15
+   319  01FEA4  90                 	db	144
+   320  01FEA5  0F                 	db	15
+   321  01FEA6  90                 	db	144
+   322  01FEA7  0F                 	db	15
+   323  01FEA8  90                 	db	144
+   324  01FEA9  0F                 	db	15
+   325  01FEAA  8F                 	db	143
+   326  01FEAB  0F                 	db	15
+   327  01FEAC  8F                 	db	143
+   328  01FEAD  0F                 	db	15
+   329  01FEAE  8F                 	db	143
+   330  01FEAF  0F                 	db	15
+   331  01FEB0  8F                 	db	143
+   332  01FEB1  0F                 	db	15
+   333  01FEB2  90                 	db	144
+   334  01FEB3  0F                 	db	15
+   335  01FEB4  90                 	db	144
+   336  01FEB5  0F                 	db	15
+   337  01FEB6  90                 	db	144
+   338  01FEB7  0F                 	db	15
+   339  01FEB8  90                 	db	144
+   340  01FEB9  0F                 	db	15
+   341  01FEBA  00                 	db	0
+   342  01FEBB  00                 	db	0
+   343  01FEBC  00                 	db	0
+   344  01FEBD  00                 	db	0
+   345  01FEBE  8E                 	db	142
+   346  01FEBF  0F                 	db	15
+   347  01FEC0  8E                 	db	142
+   348  01FEC1  0F                 	db	15
+   349  01FEC2  8E                 	db	142
+   350  01FEC3  0F                 	db	15
+   351  01FEC4  8E                 	db	142
+   352  01FEC5  0F                 	db	15
+   353  01FEC6  8E                 	db	142
+   354  01FEC7  0F                 	db	15
+   355  01FEC8  8E                 	db	142
+   356  01FEC9  0F                 	db	15
+   357  01FECA  8E                 	db	142
+   358  01FECB  0F                 	db	15
+   359  01FECC  8E                 	db	142
+   360  01FECD  0F                 	db	15
+   361  0000                     _LATB	set	3972
+   362  0000                     _LATD	set	3974
+   363  0000                     _LATC	set	3973
+   364  0000                     _LATA	set	3971
+   365  0000                     _LATE	set	3975
+   366  0000                     _PORTB	set	3982
+   367  0000                     _PORTD	set	3984
+   368  0000                     _PORTC	set	3983
+   369  0000                     _PORTA	set	3981
+   370  0000                     _PORTE	set	3985
+   371  0000                     _TRISB	set	3977
+   372  0000                     _TRISD	set	3979
+   373  0000                     _TRISC	set	3978
+   374  0000                     _TRISA	set	3976
+   375  0000                     _TRISE	set	3980
+   376                           
+   377                           ; #config settings
+   378  0000                     
+   379                           	psect	cinit
+   380  01FDC4                     __pcinit:
+   381                           	opt stack 0
+   382  01FDC4                     start_initialization:
+   383                           	opt stack 0
+   384  01FDC4                     __initialization:
+   385                           	opt stack 0
+   386                           
+   387                           ; Initialize objects allocated to BANK1 (164 bytes)
+   388                           ; load TBLPTR registers with __pidataBANK1
+   389  01FDC4  0E2A               	movlw	low __pidataBANK1
+   390  01FDC6  6EF6               	movwf	tblptrl,c
+   391  01FDC8  0EFE               	movlw	high __pidataBANK1
+   392  01FDCA  6EF7               	movwf	tblptrh,c
+   393  01FDCC  0E01               	movlw	low (__pidataBANK1 shr (0+16))
+   394  01FDCE  6EF8               	movwf	tblptru,c
+   395  01FDD0  EE01  F000         	lfsr	0,__pdataBANK1
+   396  01FDD4  EE10 F0A4          	lfsr	1,164
+   397  01FDD8                     copy_data0:
+   398  01FDD8  0009               	tblrd		*+
+   399  01FDDA  CFF5 FFEE          	movff	tablat,postinc0
+   400  01FDDE  50E5               	movf	postdec1,w,c
+   401  01FDE0  50E1               	movf	fsr1l,w,c
+   402  01FDE2  E1FA               	bnz	copy_data0
+   403                           
+   404                           ; Initialize objects allocated to BANK0 (82 bytes)
+   405                           ; load TBLPTR registers with __pidataBANK0
+   406  01FDE4  0E72               	movlw	low __pidataBANK0
+   407  01FDE6  6EF6               	movwf	tblptrl,c
+   408  01FDE8  0EFD               	movlw	high __pidataBANK0
+   409  01FDEA  6EF7               	movwf	tblptrh,c
+   410  01FDEC  0E01               	movlw	low (__pidataBANK0 shr (0+16))
+   411  01FDEE  6EF8               	movwf	tblptru,c
+   412  01FDF0  EE00  F060         	lfsr	0,__pdataBANK0
+   413  01FDF4  EE10 F052          	lfsr	1,82
+   414  01FDF8                     copy_data1:
+   415  01FDF8  0009               	tblrd		*+
+   416  01FDFA  CFF5 FFEE          	movff	tablat,postinc0
+   417  01FDFE  50E5               	movf	postdec1,w,c
+   418  01FE00  50E1               	movf	fsr1l,w,c
+   419  01FE02  E1FA               	bnz	copy_data1
+   420                           
+   421                           ; Initialize objects allocated to COMRAM (41 bytes)
+   422                           ; load TBLPTR registers with __pidataCOMRAM
+   423  01FE04  0E83               	movlw	low __pidataCOMRAM
+   424  01FE06  6EF6               	movwf	tblptrl,c
+   425  01FE08  0EFC               	movlw	high __pidataCOMRAM
+   426  01FE0A  6EF7               	movwf	tblptrh,c
+   427  01FE0C  0E01               	movlw	low (__pidataCOMRAM shr (0+16))
+   428  01FE0E  6EF8               	movwf	tblptru,c
+   429  01FE10  EE00  F001         	lfsr	0,__pdataCOMRAM
+   430  01FE14  EE10 F029          	lfsr	1,41
+   431  01FE18                     copy_data2:
+   432  01FE18  0009               	tblrd		*+
+   433  01FE1A  CFF5 FFEE          	movff	tablat,postinc0
+   434  01FE1E  50E5               	movf	postdec1,w,c
+   435  01FE20  50E1               	movf	fsr1l,w,c
+   436  01FE22  E1FA               	bnz	copy_data2
+   437  01FE24                     end_of_initialization:
+   438                           	opt stack 0
+   439  01FE24                     __end_of__initialization:
+   440                           	opt stack 0
+   441  01FE24  0100               	movlb	0
+   442  01FE26  EF6E  F0FE         	goto	_main	;jump to C main() function
+   443                           tblptru	equ	0xFF8
+   444                           tblptrh	equ	0xFF7
+   445                           tblptrl	equ	0xFF6
+   446                           tablat	equ	0xFF5
+   447                           postinc0	equ	0xFEE
+   448                           postdec1	equ	0xFE5
+   449                           fsr1l	equ	0xFE1
+   450                           
+   451                           	psect	dataCOMRAM
+   452  000001                     __pdataCOMRAM:
+   453                           	opt stack 0
+   454  000001                     _regNumber:
+   455                           	opt stack 0
+   456  000001                     	ds	41
+   457                           tblptru	equ	0xFF8
+   458                           tblptrh	equ	0xFF7
+   459                           tblptrl	equ	0xFF6
+   460                           tablat	equ	0xFF5
+   461                           postinc0	equ	0xFEE
+   462                           postdec1	equ	0xFE5
+   463                           fsr1l	equ	0xFE1
+   464                           
+   465                           	psect	dataBANK0
+   466  000060                     __pdataBANK0:
+   467                           	opt stack 0
+   468  000060                     _trisID:
+   469                           	opt stack 0
+   470  000060                     	ds	82
+   471                           tblptru	equ	0xFF8
+   472                           tblptrh	equ	0xFF7
+   473                           tblptrl	equ	0xFF6
+   474                           tablat	equ	0xFF5
+   475                           postinc0	equ	0xFEE
+   476                           postdec1	equ	0xFE5
+   477                           fsr1l	equ	0xFE1
+   478                           
+   479                           	psect	dataBANK1
+   480  000100                     __pdataBANK1:
+   481                           	opt stack 0
+   482  000100                     _latID:
+   483                           	opt stack 0
+   484  000100                     	ds	82
+   485  000152                     _portID:
+   486                           	opt stack 0
+   487  000152                     	ds	82
+   488                           tblptru	equ	0xFF8
+   489                           tblptrh	equ	0xFF7
+   490                           tblptrl	equ	0xFF6
+   491                           tablat	equ	0xFF5
+   492                           postinc0	equ	0xFEE
+   493                           postdec1	equ	0xFE5
+   494                           fsr1l	equ	0xFE1
+   495                           
+   496                           	psect	cstackCOMRAM
+   497  00002A                     __pcstackCOMRAM:
+   498                           	opt stack 0
+   499  00002A                     driveLow@pin:
+   500                           	opt stack 0
+   501  00002A                     toggle@pin:
+   502                           	opt stack 0
+   503                           
+   504                           ; 2 bytes @ 0x0
+   505  00002A                     	ds	2
+   506  00002C                     ??_toggle:
+   507  00002C                     ??_driveLow:
+   508                           
+   509                           ; 1 bytes @ 0x2
+   510  00002C                     	ds	2
+   511  00002E                     driveLow@toMask:
+   512                           	opt stack 0
+   513                           
+   514                           ; 1 bytes @ 0x4
+   515  00002E                     	ds	1
+   516  00002F                     toggle@toAssign:
+   517                           	opt stack 0
+   518  00002F                     startPin@newPin:
+   519                           	opt stack 0
+   520                           
+   521                           ; 2 bytes @ 0x5
+   522  00002F                     	ds	2
+   523  000031                     startPin@pinNum:
+   524                           	opt stack 0
+   525                           
+   526                           ; 1 bytes @ 0x7
+   527  000031                     	ds	1
+   528  000032                     startPin@pinDir:
+   529                           	opt stack 0
+   530                           
+   531                           ; 2 bytes @ 0x8
+   532  000032                     	ds	2
+   533  000034                     ??_startPin:
+   534                           
+   535                           ; 1 bytes @ 0xA
+   536  000034                     	ds	3
+   537  000037                     startPin@shiftLevel:
+   538                           	opt stack 0
+   539                           
+   540                           ; 2 bytes @ 0xD
+   541  000037                     	ds	2
+   542  000039                     startPin@rm:
+   543                           	opt stack 0
+   544                           
+   545                           ; 1 bytes @ 0xF
+   546  000039                     	ds	1
+   547  00003A                     main@overFlow:
+   548                           	opt stack 0
+   549                           
+   550                           ; 2 bytes @ 0x10
+   551  00003A                     	ds	2
+   552  00003C                     main@c:
+   553                           	opt stack 0
+   554                           
+   555                           ; 2 bytes @ 0x12
+   556  00003C                     	ds	2
+   557  00003E                     main@ledPin:
+   558                           	opt stack 0
+   559                           
+   560                           ; 7 bytes @ 0x14
+   561  00003E                     	ds	7
+   562                           tblptru	equ	0xFF8
+   563                           tblptrh	equ	0xFF7
+   564                           tblptrl	equ	0xFF6
+   565                           tablat	equ	0xFF5
+   566                           postinc0	equ	0xFEE
+   567                           postdec1	equ	0xFE5
+   568                           fsr1l	equ	0xFE1
+   569                           
+   570 ;;
+   571 ;;Main: autosize = 0, tempsize = 0, incstack = 0, save=0
+   572 ;;
+   573 ;; *************** function _main *****************
+   574 ;; Defined at:
+   575 ;;		line 14 in file "newmain.c"
+   576 ;; Parameters:    Size  Location     Type
+   577 ;;		None
+   578 ;; Auto vars:     Size  Location     Type
+   579 ;;  ledPin          7   20[COMRAM] struct pinDef
+   580 ;;  c               2   18[COMRAM] unsigned int 
+   581 ;;  overFlow        2   16[COMRAM] unsigned int 
+   582 ;; Return value:  Size  Location     Type
+   583 ;;                  1    wreg      void 
+   584 ;; Registers used:
+   585 ;;		wreg, fsr1l, fsr1h, fsr2l, fsr2h, status,2, status,0, prodl, prodh, cstack
+   586 ;; Tracked objects:
+   587 ;;		On entry : 0/0
+   588 ;;		On exit  : 0/0
+   589 ;;		Unchanged: 0/0
+   590 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12  BANK13  BANK14
+   591 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0
+   592 ;;      Locals:        11       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0
+   593 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0
+   594 ;;      Totals:        11       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0
+   595 ;;Total ram usage:       11 bytes
+   596 ;; Hardware stack levels required when called:    2
+   597 ;; This function calls:
+   598 ;;		_startPin
+   599 ;;		_toggle
+   600 ;; This function is called by:
+   601 ;;		Startup code after reset
+   602 ;; This function uses a non-reentrant model
+   603 ;;
+   604                           
+   605                           	psect	text0
+   606  01FCDC                     __ptext0:
+   607                           	opt stack 0
+   608  01FCDC                     _main:
+   609                           	opt stack 29
+   610                           
+   611                           ;newmain.c: 27: struct pinDef ledPin;
+   612                           ;newmain.c: 28: startPin(&ledPin,21,1);
+   613                           
+   614                           ;incstack = 0
+   615  01FCDC  0E3E               	movlw	low main@ledPin
+   616  01FCDE  6E2F               	movwf	startPin@newPin,c
+   617  01FCE0  0E00               	movlw	high main@ledPin
+   618  01FCE2  6E30               	movwf	startPin@newPin+1,c
+   619  01FCE4  0E15               	movlw	21
+   620  01FCE6  6E31               	movwf	startPin@pinNum,c
+   621  01FCE8  0E00               	movlw	0
+   622  01FCEA  6E33               	movwf	startPin@pinDir+1,c
+   623  01FCEC  0E01               	movlw	1
+   624  01FCEE  6E32               	movwf	startPin@pinDir,c
+   625  01FCF0  EC67  F0FF         	call	_startPin	;wreg free
+   626                           
+   627                           ;newmain.c: 29: unsigned int c;
+   628                           ;newmain.c: 30: unsigned int overFlow = 10;
+   629  01FCF4  0E00               	movlw	0
+   630  01FCF6  6E3B               	movwf	main@overFlow+1,c
+   631  01FCF8  0E0A               	movlw	10
+   632  01FCFA  6E3A               	movwf	main@overFlow,c
+   633  01FCFC                     l861:
+   634                           
+   635                           ;newmain.c: 32: {
+   636                           ;newmain.c: 37: toggle(&ledPin);
+   637  01FCFC  0E3E               	movlw	low main@ledPin
+   638  01FCFE  6E2A               	movwf	toggle@pin,c
+   639  01FD00  0E00               	movlw	high main@ledPin
+   640  01FD02  6E2B               	movwf	toggle@pin+1,c
+   641  01FD04  EC93  F0FE         	call	_toggle	;wreg free
+   642                           
+   643                           ;newmain.c: 38: for(c = 0; c < overFlow; c++){asm("nop");}
+   644  01FD08  0E00               	movlw	0
+   645  01FD0A  6E3D               	movwf	main@c+1,c
+   646  01FD0C  0E00               	movlw	0
+   647  01FD0E  6E3C               	movwf	main@c,c
+   648  01FD10  D003               	goto	l867
+   649  01FD12                     l49:
+   650  01FD12  F000               	nop		;# 
+   651  01FD14  4A3C               	infsnz	main@c,f,c
+   652  01FD16  2A3D               	incf	main@c+1,f,c
+   653  01FD18                     l867:
+   654  01FD18  503A               	movf	main@overFlow,w,c
+   655  01FD1A  5C3C               	subwf	main@c,w,c
+   656  01FD1C  503B               	movf	main@overFlow+1,w,c
+   657  01FD1E  583D               	subwfb	main@c+1,w,c
+   658  01FD20  B0D8               	btfsc	status,0,c
+   659  01FD22  D7EC               	goto	l861
+   660  01FD24  D7F6               	goto	l49
+   661  01FD26                     __end_of_main:
+   662                           	opt stack 0
+   663                           tblptru	equ	0xFF8
+   664                           tblptrh	equ	0xFF7
+   665                           tblptrl	equ	0xFF6
+   666                           tablat	equ	0xFF5
+   667                           postinc0	equ	0xFEE
+   668                           postdec1	equ	0xFE5
+   669                           fsr1l	equ	0xFE1
+   670                           status	equ	0xFD8
+   671                           
+   672 ;; *************** function _toggle *****************
+   673 ;; Defined at:
+   674 ;;		line 59 in file "WBOS.c"
+   675 ;; Parameters:    Size  Location     Type
+   676 ;;  pin             2    0[COMRAM] PTR struct pinDef
+   677 ;;		 -> main@ledPin(7), 
+   678 ;; Auto vars:     Size  Location     Type
+   679 ;;  toAssign        1    5[COMRAM] unsigned char 
+   680 ;; Return value:  Size  Location     Type
+   681 ;;                  1    wreg      void 
+   682 ;; Registers used:
+   683 ;;		wreg, fsr2l, fsr2h, status,2, status,0
+   684 ;; Tracked objects:
+   685 ;;		On entry : 0/0
+   686 ;;		On exit  : 0/0
+   687 ;;		Unchanged: 0/0
+   688 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12  BANK13  BANK14
+   689 ;;      Params:         2       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0
+   690 ;;      Locals:         1       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0
+   691 ;;      Temps:          3       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0
+   692 ;;      Totals:         6       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0
+   693 ;;Total ram usage:        6 bytes
+   694 ;; Hardware stack levels used:    1
+   695 ;; This function calls:
+   696 ;;		Nothing
+   697 ;; This function is called by:
+   698 ;;		_main
+   699 ;; This function uses a non-reentrant model
+   700 ;;
+   701                           
+   702                           	psect	text1
+   703  01FD26                     __ptext1:
+   704                           	opt stack 0
+   705  01FD26                     _toggle:
+   706                           	opt stack 30
+   707                           
+   708                           ;WBOS.c: 60: unsigned char toAssign = pin->regID[0] ^ pin->regMask;
+   709                           
+   710                           ;incstack = 0
+   711  01FD26  EE20 F002          	lfsr	2,2
+   712  01FD2A  502A               	movf	toggle@pin,w,c
+   713  01FD2C  26D9               	addwf	fsr2l,f,c
+   714  01FD2E  502B               	movf	toggle@pin+1,w,c
+   715  01FD30  22DA               	addwfc	fsr2h,f,c
+   716  01FD32  50DF               	movf	indf2,w,c
+   717  01FD34  6E2C               	movwf	??_toggle& (0+255),c
+   718  01FD36  C02A  FFD9         	movff	toggle@pin,fsr2l
+   719  01FD3A  C02B  FFDA         	movff	toggle@pin+1,fsr2h
+   720  01FD3E  CFDE F02D          	movff	postinc2,??_toggle+1
+   721  01FD42  CFDD F02E          	movff	postdec2,??_toggle+2
+   722  01FD46  C02D  FFD9         	movff	??_toggle+1,fsr2l
+   723  01FD4A  C02E  FFDA         	movff	??_toggle+2,fsr2h
+   724  01FD4E  50DF               	movf	indf2,w,c
+   725  01FD50  182C               	xorwf	??_toggle,w,c
+   726  01FD52  6E2F               	movwf	toggle@toAssign,c
+   727                           
+   728                           ;WBOS.c: 61: pin->regID[0] = toAssign;
+   729  01FD54  C02A  FFD9         	movff	toggle@pin,fsr2l
+   730  01FD58  C02B  FFDA         	movff	toggle@pin+1,fsr2h
+   731  01FD5C  CFDE F02C          	movff	postinc2,??_toggle
+   732  01FD60  CFDD F02D          	movff	postdec2,??_toggle+1
+   733  01FD64  C02C  FFD9         	movff	??_toggle,fsr2l
+   734  01FD68  C02D  FFDA         	movff	??_toggle+1,fsr2h
+   735  01FD6C  C02F  FFDF         	movff	toggle@toAssign,indf2
+   736  01FD70  0012               	return		;funcret
+   737  01FD72                     __end_of_toggle:
+   738                           	opt stack 0
+   739                           tblptru	equ	0xFF8
+   740                           tblptrh	equ	0xFF7
+   741                           tblptrl	equ	0xFF6
+   742                           tablat	equ	0xFF5
+   743                           postinc0	equ	0xFEE
+   744                           postdec1	equ	0xFE5
+   745                           fsr1l	equ	0xFE1
+   746                           indf2	equ	0xFDF
+   747                           postinc2	equ	0xFDE
+   748                           postdec2	equ	0xFDD
+   749                           fsr2h	equ	0xFDA
+   750                           fsr2l	equ	0xFD9
+   751                           status	equ	0xFD8
+   752                           
+   753 ;; *************** function _startPin *****************
+   754 ;; Defined at:
+   755 ;;		line 17 in file "WBOS.c"
+   756 ;; Parameters:    Size  Location     Type
+   757 ;;  newPin          2    5[COMRAM] PTR struct pinDef
+   758 ;;		 -> main@ledPin(7), 
+   759 ;;  pinNum          1    7[COMRAM] unsigned char 
+   760 ;;  pinDir          2    8[COMRAM] int 
+   761 ;; Auto vars:     Size  Location     Type
+   762 ;;  shiftLevel      2   13[COMRAM] int 
+   763 ;;  rm              1   15[COMRAM] unsigned char 
+   764 ;; Return value:  Size  Location     Type
+   765 ;;                  1    wreg      void 
+   766 ;; Registers used:
+   767 ;;		wreg, fsr1l, fsr1h, fsr2l, fsr2h, status,2, status,0, prodl, prodh, cstack
+   768 ;; Tracked objects:
+   769 ;;		On entry : 0/0
+   770 ;;		On exit  : 0/0
+   771 ;;		Unchanged: 0/0
+   772 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12  BANK13  BANK14
+   773 ;;      Params:         5       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0
+   774 ;;      Locals:         3       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0
+   775 ;;      Temps:          3       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0
+   776 ;;      Totals:        11       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0
+   777 ;;Total ram usage:       11 bytes
+   778 ;; Hardware stack levels used:    1
+   779 ;; Hardware stack levels required when called:    1
+   780 ;; This function calls:
+   781 ;;		_driveLow
+   782 ;; This function is called by:
+   783 ;;		_main
+   784 ;; This function uses a non-reentrant model
+   785 ;;
+   786                           
+   787                           	psect	text2
+   788  01FECE                     __ptext2:
+   789                           	opt stack 0
+   790  01FECE                     _startPin:
+   791                           	opt stack 29
+   792                           
+   793                           ;WBOS.c: 19: int shiftLevel = regNumber[pinNum];
+   794                           
+   795                           ;incstack = 0
+   796  01FECE  5031               	movf	startPin@pinNum,w,c
+   797  01FED0  0D01               	mullw	1
+   798  01FED2  0E01               	movlw	low _regNumber
+   799  01FED4  24F3               	addwf	prodl,w,c
+   800  01FED6  6ED9               	movwf	fsr2l,c
+   801  01FED8  0E00               	movlw	high _regNumber
+   802  01FEDA  20F4               	addwfc	prodh,w,c
+   803  01FEDC  6EDA               	movwf	fsr2h,c
+   804  01FEDE  50DF               	movf	indf2,w,c
+   805  01FEE0  6E34               	movwf	??_startPin& (0+255),c
+   806  01FEE2  5034               	movf	??_startPin,w,c
+   807  01FEE4  6E37               	movwf	startPin@shiftLevel,c
+   808  01FEE6  6A38               	clrf	startPin@shiftLevel+1,c
+   809                           
+   810                           ;WBOS.c: 20: unsigned char rm = 0x1 << regNumber[pinNum];
+   811  01FEE8  5031               	movf	startPin@pinNum,w,c
+   812  01FEEA  0D01               	mullw	1
+   813  01FEEC  0E01               	movlw	low _regNumber
+   814  01FEEE  24F3               	addwf	prodl,w,c
+   815  01FEF0  6ED9               	movwf	fsr2l,c
+   816  01FEF2  0E00               	movlw	high _regNumber
+   817  01FEF4  20F4               	addwfc	prodh,w,c
+   818  01FEF6  6EDA               	movwf	fsr2h,c
+   819  01FEF8  50DF               	movf	indf2,w,c
+   820  01FEFA  6E34               	movwf	??_startPin& (0+255),c
+   821  01FEFC  0E01               	movlw	1
+   822  01FEFE  6E35               	movwf	(??_startPin+1)& (0+255),c
+   823  01FF00  2A34               	incf	??_startPin,f,c
+   824  01FF02  D002               	goto	u94
+   825  01FF04                     u95:
+   826  01FF04  90D8               	bcf	status,0,c
+   827  01FF06  3635               	rlcf	??_startPin+1,f,c
+   828  01FF08                     u94:
+   829  01FF08  2E34               	decfsz	??_startPin,f,c
+   830  01FF0A  D7FC               	goto	u95
+   831  01FF0C  5035               	movf	??_startPin+1,w,c
+   832  01FF0E  6E39               	movwf	startPin@rm,c
+   833                           
+   834                           ;WBOS.c: 21: newPin->regMask = rm;
+   835  01FF10  EE20 F002          	lfsr	2,2
+   836  01FF14  502F               	movf	startPin@newPin,w,c
+   837  01FF16  26D9               	addwf	fsr2l,f,c
+   838  01FF18  5030               	movf	startPin@newPin+1,w,c
+   839  01FF1A  22DA               	addwfc	fsr2h,f,c
+   840  01FF1C  C039  FFDF         	movff	startPin@rm,indf2
+   841                           
+   842                           ;WBOS.c: 24: if(pinDir){
+   843  01FF20  5032               	movf	startPin@pinDir,w,c
+   844  01FF22  1033               	iorwf	startPin@pinDir+1,w,c
+   845  01FF24  B4D8               	btfsc	status,2,c
+   846  01FF26  D01B               	goto	l837
+   847                           
+   848                           ;WBOS.c: 27: trisID[pinNum][0] |= newPin->regMask;
+   849  01FF28  EE20 F002          	lfsr	2,2
+   850  01FF2C  502F               	movf	startPin@newPin,w,c
+   851  01FF2E  26D9               	addwf	fsr2l,f,c
+   852  01FF30  5030               	movf	startPin@newPin+1,w,c
+   853  01FF32  22DA               	addwfc	fsr2h,f,c
+   854  01FF34  50DF               	movf	indf2,w,c
+   855  01FF36  6E34               	movwf	??_startPin& (0+255),c
+   856  01FF38  5031               	movf	startPin@pinNum,w,c
+   857  01FF3A  0D02               	mullw	2
+   858  01FF3C  0E60               	movlw	low _trisID
+   859  01FF3E  24F3               	addwf	prodl,w,c
+   860  01FF40  6ED9               	movwf	fsr2l,c
+   861  01FF42  0E00               	movlw	high _trisID
+   862  01FF44  20F4               	addwfc	prodh,w,c
+   863  01FF46  6EDA               	movwf	fsr2h,c
+   864  01FF48  CFDE F035          	movff	postinc2,??_startPin+1
+   865  01FF4C  CFDD F036          	movff	postdec2,??_startPin+2
+   866  01FF50  C035  FFD9         	movff	??_startPin+1,fsr2l
+   867  01FF54  C036  FFDA         	movff	??_startPin+2,fsr2h
+   868  01FF58  5034               	movf	??_startPin,w,c
+   869  01FF5A  12DF               	iorwf	indf2,f,c
+   870                           
+   871                           ;WBOS.c: 28: }else{
+   872  01FF5C  D01B               	goto	l839
+   873  01FF5E                     l837:
+   874                           
+   875                           ;WBOS.c: 31: trisID[pinNum][0] &= ~(newPin->regMask);
+   876  01FF5E  EE20 F002          	lfsr	2,2
+   877  01FF62  502F               	movf	startPin@newPin,w,c
+   878  01FF64  26D9               	addwf	fsr2l,f,c
+   879  01FF66  5030               	movf	startPin@newPin+1,w,c
+   880  01FF68  22DA               	addwfc	fsr2h,f,c
+   881  01FF6A  50DF               	movf	indf2,w,c
+   882  01FF6C  0AFF               	xorlw	255
+   883  01FF6E  6E34               	movwf	??_startPin& (0+255),c
+   884  01FF70  5031               	movf	startPin@pinNum,w,c
+   885  01FF72  0D02               	mullw	2
+   886  01FF74  0E60               	movlw	low _trisID
+   887  01FF76  24F3               	addwf	prodl,w,c
+   888  01FF78  6ED9               	movwf	fsr2l,c
+   889  01FF7A  0E00               	movlw	high _trisID
+   890  01FF7C  20F4               	addwfc	prodh,w,c
+   891  01FF7E  6EDA               	movwf	fsr2h,c
+   892  01FF80  CFDE F035          	movff	postinc2,??_startPin+1
+   893  01FF84  CFDD F036          	movff	postdec2,??_startPin+2
+   894  01FF88  C035  FFD9         	movff	??_startPin+1,fsr2l
+   895  01FF8C  C036  FFDA         	movff	??_startPin+2,fsr2h
+   896  01FF90  5034               	movf	??_startPin,w,c
+   897  01FF92  16DF               	andwf	indf2,f,c
+   898  01FF94                     l839:
+   899                           
+   900                           ;WBOS.c: 32: }
+   901                           ;WBOS.c: 35: if(pinDir){
+   902  01FF94  5032               	movf	startPin@pinDir,w,c
+   903  01FF96  1033               	iorwf	startPin@pinDir+1,w,c
+   904  01FF98  B4D8               	btfsc	status,2,c
+   905  01FF9A  D007               	goto	l843
+   906                           
+   907                           ;WBOS.c: 37: newPin->regID = latID[pinNum];
+   908  01FF9C  5031               	movf	startPin@pinNum,w,c
+   909  01FF9E  0D02               	mullw	2
+   910  01FFA0  0E00               	movlw	low _latID
+   911  01FFA2  24F3               	addwf	prodl,w,c
+   912  01FFA4  6ED9               	movwf	fsr2l,c
+   913  01FFA6  0E01               	movlw	high _latID
+   914  01FFA8  D006               	goto	L1
+   915  01FFAA                     l843:
+   916                           
+   917                           ;WBOS.c: 39: newPin->regID = portID[pinNum];
+   918  01FFAA  5031               	movf	startPin@pinNum,w,c
+   919  01FFAC  0D02               	mullw	2
+   920  01FFAE  0E52               	movlw	low _portID
+   921  01FFB0  24F3               	addwf	prodl,w,c
+   922  01FFB2  6ED9               	movwf	fsr2l,c
+   923  01FFB4  0E01               	movlw	high _portID
+   924  01FFB6                     L1:
+   925  01FFB6  20F4               	addwfc	prodh,w,c
+   926  01FFB8  6EDA               	movwf	fsr2h,c
+   927  01FFBA  C02F  FFE1         	movff	startPin@newPin,fsr1l
+   928  01FFBE  C030  FFE2         	movff	startPin@newPin+1,fsr1h
+   929  01FFC2  CFDE FFE6          	movff	postinc2,postinc1
+   930  01FFC6  CFDD FFE5          	movff	postdec2,postdec1
+   931                           
+   932                           ;WBOS.c: 40: }
+   933                           ;WBOS.c: 42: newPin->directionState = pinDir;
+   934  01FFCA  EE20 F005          	lfsr	2,5
+   935  01FFCE  502F               	movf	startPin@newPin,w,c
+   936  01FFD0  26D9               	addwf	fsr2l,f,c
+   937  01FFD2  5030               	movf	startPin@newPin+1,w,c
+   938  01FFD4  22DA               	addwfc	fsr2h,f,c
+   939  01FFD6  C032  FFDE         	movff	startPin@pinDir,postinc2
+   940  01FFDA  C033  FFDD         	movff	startPin@pinDir+1,postdec2
+   941                           
+   942                           ;WBOS.c: 43: newPin->pinState = 0;
+   943  01FFDE  EE20 F003          	lfsr	2,3
+   944  01FFE2  502F               	movf	startPin@newPin,w,c
+   945  01FFE4  26D9               	addwf	fsr2l,f,c
+   946  01FFE6  5030               	movf	startPin@newPin+1,w,c
+   947  01FFE8  22DA               	addwfc	fsr2h,f,c
+   948  01FFEA  0E00               	movlw	0
+   949  01FFEC  6EDE               	movwf	postinc2,c
+   950  01FFEE  0E00               	movlw	0
+   951  01FFF0  6EDD               	movwf	postdec2,c
+   952                           
+   953                           ;WBOS.c: 45: driveLow(newPin);
+   954  01FFF2  C02F  F02A         	movff	startPin@newPin,driveLow@pin
+   955  01FFF6  C030  F02B         	movff	startPin@newPin+1,driveLow@pin+1
+   956  01FFFA  EC56  F0FE         	call	_driveLow	;wreg free
+   957  01FFFE  0012               	return	
+   958  020000                     __end_of_startPin:
+   959                           	opt stack 0
+   960                           tblptru	equ	0xFF8
+   961                           tblptrh	equ	0xFF7
+   962                           tblptrl	equ	0xFF6
+   963                           tablat	equ	0xFF5
+   964                           prodh	equ	0xFF4
+   965                           prodl	equ	0xFF3
+   966                           postinc0	equ	0xFEE
+   967                           postinc1	equ	0xFE6
+   968                           postdec1	equ	0xFE5
+   969                           fsr1h	equ	0xFE2
+   970                           fsr1l	equ	0xFE1
+   971                           indf2	equ	0xFDF
+   972                           postinc2	equ	0xFDE
+   973                           postdec2	equ	0xFDD
+   974                           fsr2h	equ	0xFDA
+   975                           fsr2l	equ	0xFD9
+   976                           status	equ	0xFD8
+   977                           
+   978 ;; *************** function _driveLow *****************
+   979 ;; Defined at:
+   980 ;;		line 54 in file "WBOS.c"
+   981 ;; Parameters:    Size  Location     Type
+   982 ;;  pin             2    0[COMRAM] PTR struct pinDef
+   983 ;;		 -> main@ledPin(7), 
+   984 ;; Auto vars:     Size  Location     Type
+   985 ;;  toMask          1    4[COMRAM] unsigned char 
+   986 ;; Return value:  Size  Location     Type
+   987 ;;                  1    wreg      void 
+   988 ;; Registers used:
+   989 ;;		wreg, fsr2l, fsr2h, status,2, status,0
+   990 ;; Tracked objects:
+   991 ;;		On entry : 0/0
+   992 ;;		On exit  : 0/0
+   993 ;;		Unchanged: 0/0
+   994 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12  BANK13  BANK14
+   995 ;;      Params:         2       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0
+   996 ;;      Locals:         1       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0
+   997 ;;      Temps:          2       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0
+   998 ;;      Totals:         5       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0
+   999 ;;Total ram usage:        5 bytes
+  1000 ;; Hardware stack levels used:    1
+  1001 ;; This function calls:
+  1002 ;;		Nothing
+  1003 ;; This function is called by:
+  1004 ;;		_startPin
+  1005 ;; This function uses a non-reentrant model
+  1006 ;;
+  1007                           
+  1008                           	psect	text3
+  1009  01FCAC                     __ptext3:
+  1010                           	opt stack 0
+  1011  01FCAC                     _driveLow:
+  1012                           	opt stack 29
+  1013                           
+  1014                           ;WBOS.c: 55: unsigned char toMask = ~(pin->regMask);
+  1015                           
+  1016                           ;incstack = 0
+  1017  01FCAC  EE20 F002          	lfsr	2,2
+  1018  01FCB0  502A               	movf	driveLow@pin,w,c
+  1019  01FCB2  26D9               	addwf	fsr2l,f,c
+  1020  01FCB4  502B               	movf	driveLow@pin+1,w,c
+  1021  01FCB6  22DA               	addwfc	fsr2h,f,c
+  1022  01FCB8  50DF               	movf	indf2,w,c
+  1023  01FCBA  0AFF               	xorlw	255
+  1024  01FCBC  6E2E               	movwf	driveLow@toMask,c
+  1025                           
+  1026                           ;WBOS.c: 56: pin->regID[0] &= toMask;
+  1027  01FCBE  C02A  FFD9         	movff	driveLow@pin,fsr2l
+  1028  01FCC2  C02B  FFDA         	movff	driveLow@pin+1,fsr2h
+  1029  01FCC6  CFDE F02C          	movff	postinc2,??_driveLow
+  1030  01FCCA  CFDD F02D          	movff	postdec2,??_driveLow+1
+  1031  01FCCE  C02C  FFD9         	movff	??_driveLow,fsr2l
+  1032  01FCD2  C02D  FFDA         	movff	??_driveLow+1,fsr2h
+  1033  01FCD6  502E               	movf	driveLow@toMask,w,c
+  1034  01FCD8  16DF               	andwf	indf2,f,c
+  1035  01FCDA  0012               	return		;funcret
+  1036  01FCDC                     __end_of_driveLow:
+  1037                           	opt stack 0
+  1038  0000                     tblptru	equ	0xFF8
+  1039                           tblptrh	equ	0xFF7
+  1040                           tblptrl	equ	0xFF6
+  1041                           tablat	equ	0xFF5
+  1042                           prodh	equ	0xFF4
+  1043                           prodl	equ	0xFF3
+  1044                           postinc0	equ	0xFEE
+  1045                           postinc1	equ	0xFE6
+  1046                           postdec1	equ	0xFE5
+  1047                           fsr1h	equ	0xFE2
+  1048                           fsr1l	equ	0xFE1
+  1049                           indf2	equ	0xFDF
+  1050                           postinc2	equ	0xFDE
+  1051                           postdec2	equ	0xFDD
+  1052                           fsr2h	equ	0xFDA
+  1053                           fsr2l	equ	0xFD9
+  1054                           status	equ	0xFD8
+  1055                           tblptru	equ	0xFF8
+  1056                           tblptrh	equ	0xFF7
+  1057                           tblptrl	equ	0xFF6
+  1058                           tablat	equ	0xFF5
+  1059                           prodh	equ	0xFF4
+  1060                           prodl	equ	0xFF3
+  1061                           postinc0	equ	0xFEE
+  1062                           postinc1	equ	0xFE6
+  1063                           postdec1	equ	0xFE5
+  1064                           fsr1h	equ	0xFE2
+  1065                           fsr1l	equ	0xFE1
+  1066                           indf2	equ	0xFDF
+  1067                           postinc2	equ	0xFDE
+  1068                           postdec2	equ	0xFDD
+  1069                           fsr2h	equ	0xFDA
+  1070                           fsr2l	equ	0xFD9
+  1071                           status	equ	0xFD8
+  1072                           
+  1073                           	psect	rparam
+  1074  0000                     tblptru	equ	0xFF8
+  1075                           tblptrh	equ	0xFF7
+  1076                           tblptrl	equ	0xFF6
+  1077                           tablat	equ	0xFF5
+  1078                           prodh	equ	0xFF4
+  1079                           prodl	equ	0xFF3
+  1080                           postinc0	equ	0xFEE
+  1081                           postinc1	equ	0xFE6
+  1082                           postdec1	equ	0xFE5
+  1083                           fsr1h	equ	0xFE2
+  1084                           fsr1l	equ	0xFE1
+  1085                           indf2	equ	0xFDF
+  1086                           postinc2	equ	0xFDE
+  1087                           postdec2	equ	0xFDD
+  1088                           fsr2h	equ	0xFDA
+  1089                           fsr2l	equ	0xFD9
+  1090                           status	equ	0xFD8
+
+
+Data Sizes:
+    Strings     0
+    Constant    0
+    Data        287
+    BSS         0
+    Persistent  0
+    Stack       0
+
+Auto Spaces:
+    Space          Size  Autos    Used
+    COMRAM           95     27      68
+    BANK0           160      0      82
+    BANK1           256      0     164
+    BANK2           256      0       0
+    BANK3           256      0       0
+    BANK4           256      0       0
+    BANK5           256      0       0
+    BANK6           256      0       0
+    BANK7           256      0       0
+    BANK8           256      0       0
+    BANK9           256      0       0
+    BANK10          256      0       0
+    BANK11          256      0       0
+    BANK12          256      0       0
+    BANK13          256      0       0
+    BANK14          126      0       0
+
+Pointer List with Targets:
+
+    readPin@pin.regID	PTR unsigned char  size(2) Largest target is 1
+		 -> LATB(SFR_2[1]), LATD(SFR_2[1]), LATC(SFR_2[1]), LATA(SFR_2[1]), 
+		 -> LATE(SFR_2[1]), PORTB(SFR_2[1]), PORTD(SFR_2[1]), PORTC(SFR_2[1]), 
+		 -> PORTA(SFR_2[1]), PORTE(SFR_2[1]), NULL(NULL[0]), 
+
+    toggle@pin.regID	PTR unsigned char  size(2) Largest target is 1
+		 -> LATB(SFR_2[1]), LATD(SFR_2[1]), LATC(SFR_2[1]), LATA(SFR_2[1]), 
+		 -> LATE(SFR_2[1]), PORTB(SFR_2[1]), PORTD(SFR_2[1]), PORTC(SFR_2[1]), 
+		 -> PORTA(SFR_2[1]), PORTE(SFR_2[1]), NULL(NULL[0]), 
+
+    toggle@pin	PTR struct pinDef size(2) Largest target is 8
+		 -> main@ledPin(COMRAM[7]), 
+
+    driveLow@pin.regID	PTR unsigned char  size(2) Largest target is 1
+		 -> LATB(SFR_2[1]), LATD(SFR_2[1]), LATC(SFR_2[1]), LATA(SFR_2[1]), 
+		 -> LATE(SFR_2[1]), PORTB(SFR_2[1]), PORTD(SFR_2[1]), PORTC(SFR_2[1]), 
+		 -> PORTA(SFR_2[1]), PORTE(SFR_2[1]), NULL(NULL[0]), 
+
+    driveLow@pin	PTR struct pinDef size(2) Largest target is 8
+		 -> main@ledPin(COMRAM[7]), 
+
+    driveHigh@pin.regID	PTR unsigned char  size(2) Largest target is 1
+		 -> LATB(SFR_2[1]), LATD(SFR_2[1]), LATC(SFR_2[1]), LATA(SFR_2[1]), 
+		 -> LATE(SFR_2[1]), PORTB(SFR_2[1]), PORTD(SFR_2[1]), PORTC(SFR_2[1]), 
+		 -> PORTA(SFR_2[1]), PORTE(SFR_2[1]), NULL(NULL[0]), 
+
+    startPin@newPin.regID	PTR unsigned char  size(2) Largest target is 1
+		 -> LATB(SFR_2[1]), LATD(SFR_2[1]), LATC(SFR_2[1]), LATA(SFR_2[1]), 
+		 -> LATE(SFR_2[1]), PORTB(SFR_2[1]), PORTD(SFR_2[1]), PORTC(SFR_2[1]), 
+		 -> PORTA(SFR_2[1]), PORTE(SFR_2[1]), NULL(NULL[0]), 
+
+    startPin@newPin	PTR struct pinDef size(2) Largest target is 8
+		 -> main@ledPin(COMRAM[7]), 
+
+    clear@object.dPort	PTR unsigned char  size(2) Largest target is 0
+
+    clear@object.clkPort	PTR unsigned char  size(2) Largest target is 0
+
+    resend@object.dPort	PTR unsigned char  size(2) Largest target is 0
+
+    resend@object.clkPort	PTR unsigned char  size(2) Largest target is 0
+
+    loadNew@object.dPort	PTR unsigned char  size(2) Largest target is 0
+
+    loadNew@object.clkPort	PTR unsigned char  size(2) Largest target is 0
+
+    S70SN74HC164$dPort	PTR unsigned char  size(2) Largest target is 0
+
+    init@object.dPort	PTR unsigned char  size(2) Largest target is 0
+
+    S70SN74HC164$clkPort	PTR unsigned char  size(2) Largest target is 0
+
+    init@object.clkPort	PTR unsigned char  size(2) Largest target is 0
+
+    S36pinDef$regID	PTR unsigned char  size(2) Largest target is 1
+		 -> LATB(SFR_2[1]), LATD(SFR_2[1]), LATC(SFR_2[1]), LATA(SFR_2[1]), 
+		 -> LATE(SFR_2[1]), PORTB(SFR_2[1]), PORTD(SFR_2[1]), PORTC(SFR_2[1]), 
+		 -> PORTA(SFR_2[1]), PORTE(SFR_2[1]), NULL(NULL[0]), 
+
+    ledPin.regID	PTR unsigned char  size(2) Largest target is 1
+		 -> LATB(SFR_2[1]), LATD(SFR_2[1]), LATC(SFR_2[1]), LATA(SFR_2[1]), 
+		 -> LATE(SFR_2[1]), PORTB(SFR_2[1]), PORTD(SFR_2[1]), PORTC(SFR_2[1]), 
+		 -> PORTA(SFR_2[1]), PORTE(SFR_2[1]), NULL(NULL[0]), 
+
+    latID	PTR unsigned char [41] size(2) Largest target is 1
+		 -> LATB(SFR_2[1]), LATD(SFR_2[1]), LATC(SFR_2[1]), LATA(SFR_2[1]), 
+		 -> LATE(SFR_2[1]), NULL(NULL[0]), 
+
+    portID	PTR unsigned char [41] size(2) Largest target is 1
+		 -> PORTB(SFR_2[1]), PORTD(SFR_2[1]), PORTC(SFR_2[1]), PORTA(SFR_2[1]), 
+		 -> PORTE(SFR_2[1]), NULL(NULL[0]), 
+
+    trisID	PTR unsigned char [41] size(2) Largest target is 1
+		 -> TRISB(SFR_2[1]), TRISD(SFR_2[1]), TRISC(SFR_2[1]), TRISA(SFR_2[1]), 
+		 -> TRISE(SFR_2[1]), NULL(NULL[0]), 
+
+
+Critical Paths under _main in COMRAM
+
+    _main->_startPin
+    _startPin->_driveLow
+
+Critical Paths under _main in BANK0
+
+    None.
+
+Critical Paths under _main in BANK1
+
+    None.
+
+Critical Paths under _main in BANK2
+
+    None.
+
+Critical Paths under _main in BANK3
+
+    None.
+
+Critical Paths under _main in BANK4
+
+    None.
+
+Critical Paths under _main in BANK5
+
+    None.
+
+Critical Paths under _main in BANK6
+
+    None.
+
+Critical Paths under _main in BANK7
+
+    None.
+
+Critical Paths under _main in BANK8
+
+    None.
+
+Critical Paths under _main in BANK9
+
+    None.
+
+Critical Paths under _main in BANK10
+
+    None.
+
+Critical Paths under _main in BANK11
+
+    None.
+
+Critical Paths under _main in BANK12
+
+    None.
+
+Critical Paths under _main in BANK13
+
+    None.
+
+Critical Paths under _main in BANK14
+
+    None.
+
+Call Graph Tables:
+
+ ---------------------------------------------------------------------------------
+ (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+ ---------------------------------------------------------------------------------
+ (0) _main                                                11    11      0    1042
+                                             16 COMRAM    11    11      0
+                           _startPin
+                             _toggle
+ ---------------------------------------------------------------------------------
+ (1) _toggle                                               6     4      2     165
+                                              0 COMRAM     6     4      2
+ ---------------------------------------------------------------------------------
+ (1) _startPin                                            11     6      5     769
+                                              5 COMRAM    11     6      5
+                           _driveLow
+ ---------------------------------------------------------------------------------
+ (2) _driveLow                                             5     3      2     143
+                                              0 COMRAM     5     3      2
+ ---------------------------------------------------------------------------------
+ Estimated maximum stack depth 2
+ ---------------------------------------------------------------------------------
+
+ Call Graph Graphs:
+
+ _main (ROOT)
+   _startPin
+     _driveLow
+   _toggle
+
+ Address spaces:
+Name               Size   Autos  Total    Cost      Usage
+BIGRAM             E7D      0       0      35        0.0%
+EEDATA             400      0       0       0        0.0%
+BITBANK13          100      0       0      31        0.0%
+BANK13             100      0       0      32        0.0%
+BITBANK12          100      0       0      29        0.0%
+BANK12             100      0       0      30        0.0%
+BITBANK11          100      0       0      27        0.0%
+BANK11             100      0       0      28        0.0%
+BITBANK10          100      0       0      25        0.0%
+BANK10             100      0       0      26        0.0%
+BITBANK9           100      0       0      23        0.0%
+BANK9              100      0       0      24        0.0%
+BITBANK8           100      0       0      21        0.0%
+BANK8              100      0       0      22        0.0%
+BITBANK7           100      0       0      19        0.0%
+BANK7              100      0       0      20        0.0%
+BITBANK6           100      0       0      17        0.0%
+BANK6              100      0       0      18        0.0%
+BITBANK5           100      0       0      15        0.0%
+BANK5              100      0       0      16        0.0%
+BITBANK4           100      0       0      13        0.0%
+BANK4              100      0       0      14        0.0%
+BITBANK3           100      0       0      11        0.0%
+BANK3              100      0       0      12        0.0%
+BITBANK2           100      0       0       9        0.0%
+BANK2              100      0       0      10        0.0%
+BITBANK1           100      0       0       7        0.0%
+BANK1              100      0      A4       8       64.1%
+BITBANK0            A0      0       0       4        0.0%
+BANK0               A0      0      52       5       51.3%
+BITBANK14           7E      0       0      33        0.0%
+BANK14              7E      0       0      34        0.0%
+BITCOMRAM           5F      0       0       0        0.0%
+COMRAM              5F     1B      44       1       71.6%
+BITSFR_2             0      0       0     200        0.0%
+SFR_2                0      0       0     200        0.0%
+BITSFR_1             0      0       0     200        0.0%
+SFR_1                0      0       0     200        0.0%
+BITSFR               0      0       0     200        0.0%
+SFR                  0      0       0     200        0.0%
+STACK                0      0       0       2        0.0%
+NULL                 0      0       0       0        0.0%
+ABS                  0      0     13A       6        0.0%
+DATA                 0      0     13A       3        0.0%
+CODE                 0      0       0       0        0.0%
+
+
+Microchip Technology PIC18 Macro Assembler V1.42 build -159332390 
+Symbol Table                                                                                   Sat Jul 15 13:53:43 2017
+
+                     l49 FD12                       u94 FF08                       u95 FF04  
+                    l843 FFAA                      l837 FF5E                      l861 FCFC  
+                    l839 FF94                      l867 FD18                      prod 000FF3  
+                   _LATA 000F83                     _LATB 000F84                     _LATC 000F85  
+                   _LATD 000F86                     _LATE 000F87                     _main FCDC  
+                   fsr1h 000FE2                     fsr2h 000FDA                     indf2 000FDF  
+                   fsr1l 000FE1                     fsr2l 000FD9                     prodl 000FF3  
+                   start 0000             ___param_bank 000000                    ?_main 002A  
+          __CFG_WDTE$OFF 000000                    _PORTA 000F8D                    _PORTB 000F8E  
+                  _PORTC 000F8F                    _PORTD 000F90                    _PORTE 000F91  
+                  _TRISA 000F88                    _TRISB 000F89                    _TRISC 000F8A  
+                  _TRISD 000F8B                    _TRISE 000F8C                    _latID 0100  
+                  main@c 003C              driveLow@pin 002A             main@overFlow 003A  
+                  tablat 000FF5                    status 000FD8          __initialization FDC4  
+           __end_of_main FD26                   ??_main 003A            __activetblptr 000000  
+       __end_of_driveLow FCDC                   _portID 0152                   _toggle FD26  
+                 _trisID 0060             __pdataCOMRAM 0001                   tblptrh 000FF7  
+                 tblptrl 000FF6                   tblptru 000FF8         __end_of_startPin 0000  
+             __accesstop 0060  __end_of__initialization FE24            ___rparam_used 000001  
+         __pcstackCOMRAM 002A             __pidataBANK0 FD72             __pidataBANK1 FE2A  
+         toggle@toAssign 002F                  ?_toggle 002A                ?_driveLow 002A  
+                __Hparam 0000                  __Lparam 0000                ?_startPin 002F  
+                __pcinit FDC4                  __ramtop 0F00                  __ptext0 FCDC  
+                __ptext1 FD26                  __ptext2 FECE                  __ptext3 FCAC  
+        __size_of_toggle 004C     end_of_initialization FE24               ??_driveLow 002C  
+                postdec1 000FE5                  postdec2 000FDD                  postinc0 000FEE  
+                postinc1 000FE6                  postinc2 000FDE               ??_startPin 0034  
+             main@ledPin 003E       startPin@shiftLevel 0037            __pidataCOMRAM FC83  
+         __end_of_toggle FD72      start_initialization FDC4              __pdataBANK0 0060  
+            __pdataBANK1 0100                 ??_toggle 002C        __size_of_driveLow 0030  
+      __size_of_startPin 0132                _regNumber 0001                copy_data0 FDD8  
+              copy_data1 FDF8                copy_data2 FE18           startPin@newPin 002F  
+         startPin@pinDir 0032           startPin@pinNum 0031                 __Hrparam 0000  
+             startPin@rm 0039                 __Lrparam 0000                 _driveLow FCAC  
+          __size_of_main 004A                 _startPin FECE           driveLow@toMask 002E  
+              toggle@pin 002A  
