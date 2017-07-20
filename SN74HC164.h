@@ -8,24 +8,21 @@
 #ifndef SN74HC164_H
 #define	SN74HC164_H
 
+#include "WBOS.h"
+
 #ifdef	__cplusplus
 extern "C" {
 #endif
 
 
 typedef struct SN74HC164{
-    unsigned char *clkPort;
-    unsigned char clkMask;
-    unsigned char *dPort;
-    unsigned char dMask;
+    pinDef *clockPin;
+    pinDef *dataPin;
+    pinDef *clearPin;
     unsigned char data;
 } SN74HC164;
 
-void init(SN74HC164 *object,
-        unsigned char *clockPort,
-        unsigned char clockMask,
-        unsigned char *dataPort,
-        unsigned char dataMask);
+void init(SN74HC164 *object,pinDef *cp,pinDef *dp, pinDef *cl);
 void loadNew(SN74HC164  *object, unsigned char newData);
 void resend(SN74HC164  *object);
 void clear(SN74HC164  *object);
